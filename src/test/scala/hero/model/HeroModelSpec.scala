@@ -8,7 +8,7 @@ import org.scalacheck.Prop.*
 class HeroModelSpec extends ScalaCheckSuite {
 
   property("HeroName should be invalid with less than 5 characters") {
-    forAll(HeroGenerators.heroNameOpt(1, 4)) { heroNameOpt =>
+    forAll(HeroGenerators.heroNameOpt(0, 4)) { heroNameOpt =>
       assert(heroNameOpt.isEmpty)
     }
   }
