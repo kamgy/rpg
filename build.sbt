@@ -3,7 +3,8 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / scalaVersion := "3.6.4"
 
 lazy val dependencies = {
-  Seq(Dependencies.iron)
+  Dependencies.test :+
+    Dependencies.iron
 }
 
 lazy val root = (project in file("."))

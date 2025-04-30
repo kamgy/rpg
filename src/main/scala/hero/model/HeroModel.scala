@@ -4,7 +4,7 @@ package hero.model
 import java.util.UUID
 
 import io.github.iltotore.iron.*
-import io.github.iltotore.iron.constraint.collection.MinLength
+import io.github.iltotore.iron.constraint.collection.{MaxLength, MinLength}
 import io.github.iltotore.iron.constraint.numeric.Positive
 import io.github.iltotore.iron.constraint.string.Alphanumeric
 
@@ -16,7 +16,7 @@ object HeroModel {
   }
 
   type HeroName = HeroName.T
-  object HeroName extends RefinedType[String, Alphanumeric & MinLength[5]]
+  object HeroName extends RefinedType[String, Alphanumeric & MinLength[5] & MaxLength[32]]
 
   type HeroLevel = HeroLevel.T
   object HeroLevel extends RefinedType[Int, Positive]
