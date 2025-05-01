@@ -1,9 +1,9 @@
 package dev.kamgy
-package hero.model
+package item.model
 
 import hero.model.HeroModel.*
 
-case class Hero(
+case class Item(
   id: HeroId,
   name: HeroName,
   level: HeroLevel,

@@ -5,5 +5,5 @@ import hero.model.HeroModel.*
 
 @main
 def main(): Unit =
-  val hero = Hero(HeroId.generate(), HeroName("SuperHero"), HeroLevel(1))
+  val hero = Hero(HeroId.generate(), HeroName("SuperHero"), HeroLevel(1), HeroExperience(0))
   println(hero)

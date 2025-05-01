@@ -36,4 +36,16 @@ class HeroModelSpec extends ScalaCheckSuite {
       assert(heroLevelOpt.isDefined)
     }
   }
+
+  property("HeroExperience should be invalid below 0") {
+    forAll(HeroGenerators.heroExperienceOpt(Int.MinValue, -1)) { heroExperienceOpt =>
+      assert(heroExperienceOpt.isEmpty)
+    }
+  }
+
+  property("HeroExperience should be valid for positive values") {
+    forAll(HeroGenerators.heroExperienceOpt(1, Int.MaxValue)) { heroExperienceOpt =>
+      assert(heroExperienceOpt.isDefined)
+    }
+  }
 }
