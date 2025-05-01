@@ -11,4 +11,5 @@ object Generators {
     } yield str
   }
 
+  def specialChars: Gen[Char] = Gen.choose(Char.MinValue, Char.MaxValue).suchThat(!_.isLetterOrDigit)
 }

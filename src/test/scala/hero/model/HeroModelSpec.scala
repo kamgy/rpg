@@ -4,7 +4,6 @@ package hero.model
 import hero.HeroGenerators
 import hero.model.HeroModel.HeroName
 import munit.ScalaCheckSuite
-import org.scalacheck.Gen
 import org.scalacheck.Prop.*
 
 class HeroModelSpec extends ScalaCheckSuite {
@@ -22,7 +21,7 @@ class HeroModelSpec extends ScalaCheckSuite {
   }
 
   property("HeroName should be invalid when valid name is extended with non-alphanumeric character") {
-    forAll(HeroGenerators.heroNameOpt(5, 31), Gen.choose(Char.MinValue, Char.MaxValue).suchThat(!_.isLetterOrDigit)) {
+    forAll(HeroGenerators.heroNameOpt(5, 31), Generators.specialChars) {
       case (Some(validName), specialChar) =>
         val invalidName = validName + specialChar
         assert(HeroName.option(invalidName).isEmpty)

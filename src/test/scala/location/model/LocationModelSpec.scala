@@ -12,6 +12,15 @@ class LocationModelSpec extends ScalaCheckSuite {
     assert(LocationName.option("").isEmpty)
   }
 
+  property("LocationName should be invalid when it contains non-alphanumeric character") {
+    forAll(LocationGenerators.locationNameOpt(1, 255), Generators.specialChars) {
+      case (Some(validName), specialChar) =>
+        val invalidName = validName + specialChar
+        assert(LocationName.option(invalidName).isEmpty)
+      case _ => fail("Generator produced invalid LocationName unexpectedly")
+    }
+  }
+
   property("LocationName should be valid for non-empty alphanumeric strings") {
     forAll(LocationGenerators.locationNameOpt(1, 256)) { nameOpt =>
       assert(nameOpt.isDefined)
