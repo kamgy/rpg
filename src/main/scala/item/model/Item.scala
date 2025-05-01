@@ -1,11 +1,10 @@
 package dev.kamgy
 package item.model
 
-import hero.model.HeroModel.*
+import item.model.ItemModel.*
 
 case class Item(
-  id: HeroId,
-  name: HeroName,
-  level: HeroLevel,
-  experience: HeroExperience
+  id: ItemId,
+  name: ItemName,
+  price: ItemPrice
 )
