@@ -6,5 +6,6 @@ import hero.model.HeroModel.*
 case class Hero(
   id: HeroId,
   name: HeroName,
-  level: HeroLevel
+  level: HeroLevel,
+  experience: HeroExperience
 )
