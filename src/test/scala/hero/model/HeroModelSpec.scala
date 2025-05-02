@@ -20,7 +20,7 @@ class HeroModelSpec extends ScalaCheckSuite {
     }
   }
 
-  property("HeroName should be invalid when valid name is extended with non-alphanumeric character") {
+  property("HeroName should be invalid if a valid-length name contains non-alphanumeric characters") {
     forAll(HeroGenerators.heroNameOpt(5, 31), Generators.specialChars) {
       case (Some(validName), specialChar) =>
         val invalidName = validName + specialChar
