@@ -23,8 +23,8 @@ class CreatureModelSpec extends ScalaCheckSuite {
   }
 
   property("CreatureName should be valid for non-empty alphanumeric") {
-    forAll(CreatureGenerators.creatureNameOpt(1, 128)) { nameOpt =>
-      assert(nameOpt.isDefined)
+    forAll(CreatureGenerators.creatureNameOpt(1, 128)) { creatureNameOpt =>
+      assert(creatureNameOpt.isDefined)
     }
   }
 

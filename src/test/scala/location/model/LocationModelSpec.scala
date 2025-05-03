@@ -22,8 +22,8 @@ class LocationModelSpec extends ScalaCheckSuite {
   }
 
   property("LocationName should be valid for non-empty alphanumeric strings") {
-    forAll(LocationGenerators.locationNameOpt(1, 256)) { nameOpt =>
-      assert(nameOpt.isDefined)
+    forAll(LocationGenerators.locationNameOpt(1, 256)) { locationNameOpt =>
+      assert(locationNameOpt.isDefined)
     }
   }
 }
