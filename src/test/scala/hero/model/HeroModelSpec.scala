@@ -2,7 +2,7 @@ package dev.kamgy
 package hero.model
 
 import hero.HeroGenerators
-import hero.model.HeroModel.HeroName
+import hero.model.HeroModel.{HeroExperience, HeroName}
 import munit.ScalaCheckSuite
 import org.scalacheck.Prop.*
 
@@ -51,6 +51,10 @@ class HeroModelSpec extends ScalaCheckSuite {
     forAll(HeroGenerators.heroExperienceOpt(-1_000_000, -1)) { heroExperienceOpt =>
       assert(heroExperienceOpt.isEmpty)
     }
+  }
+
+  test("HeroExperience should be valid for 0") {
+    assert(HeroExperience.option(0).isDefined)
   }
 
   property("HeroExperience should be valid for positive values") {
