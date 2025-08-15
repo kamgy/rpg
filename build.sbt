@@ -4,6 +4,7 @@ ThisBuild / scalaVersion := "3.6.4"
 
 lazy val dependencies = {
   Dependencies.test :+
+    Dependencies.cats :+
     Dependencies.iron
 }
 
